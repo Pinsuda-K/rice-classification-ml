@@ -17,6 +17,7 @@ This project gave me the opportunity to:
 - Practice **visual analysis** (scatter plots, boxplots, feature importance)  
 - Repeated runs (with different seeds) improve **reliability of results**
 
+---
 ### Dataset
 - Source: Kaggle–Rice (Cammeo and Osmancik) 👉 https://www.kaggle.com/datasets/muratkokludataset/rice-dataset-commeo-and-osmancik
 - Download: https://www.kaggle.com/api/v1/datasets/download/muratkokludataset/rice-dataset-commeo-and-osmancik
@@ -30,7 +31,30 @@ This project gave me the opportunity to:
   6. Convex Area
   7. Extent
 - Target: Rice variety (Cammeo or Osmancik)
-
+---
 
 ### Exploratory Data Analysis (EDA)
 Class Distribution
+Balanced Dataset wwith a slight dominance of Osmancik
+![Rice Distribution](./images/pie_rice.png)
+Feature Distributions
+Boxplots reveal distinct separation in traits like Area and Axis Lengths
+![Feature Distributions Boxplots](./images/boxplots_rice_looped.png)
+
+Scatter Plots
+Clear separability between varieties across multiple features
+![Area vs Perimeter](./images/scatter_Area_vs_Perimeter.png)
+![Area vs Major Axis Length](./images/scatter_Area_vs_Major_Axis_Length.png)
+![Area vs Minor Axis Length](./images/scatter_Area_vs_Minor_Axis_Length.png)
+![Area vs Convex Area](./images/scatter_Area_vs_Convex_Area.png)
+![Area vs Extent](./images/scatter_Area_vs_Extent.png)
+![Area vs Eccentricity](./images/scatter_Area_vs_Eccentricity.png)
+---
+
+### Methods
+Tr
+
+
+
+
+
