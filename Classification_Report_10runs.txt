@@ -1,0 +1,110 @@
+===================== (1) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.91      0.89      0.90       489
+    Osmancik       0.92      0.94      0.93       654
+
+    accuracy                           0.92      1143
+   macro avg       0.92      0.91      0.92      1143
+weighted avg       0.92      0.92      0.92      1143
+
+
+===================== (2) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.91      0.91      0.91       489
+    Osmancik       0.93      0.93      0.93       654
+
+    accuracy                           0.92      1143
+   macro avg       0.92      0.92      0.92      1143
+weighted avg       0.92      0.92      0.92      1143
+
+
+===================== (3) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.92      0.90      0.91       489
+    Osmancik       0.93      0.94      0.93       654
+
+    accuracy                           0.92      1143
+   macro avg       0.92      0.92      0.92      1143
+weighted avg       0.92      0.92      0.92      1143
+
+
+===================== (4) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.93      0.89      0.91       489
+    Osmancik       0.92      0.95      0.93       654
+
+    accuracy                           0.92      1143
+   macro avg       0.92      0.92      0.92      1143
+weighted avg       0.92      0.92      0.92      1143
+
+
+===================== (5) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.91      0.91      0.91       489
+    Osmancik       0.93      0.94      0.93       654
+
+    accuracy                           0.92      1143
+   macro avg       0.92      0.92      0.92      1143
+weighted avg       0.92      0.92      0.92      1143
+
+
+===================== (6) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.91      0.91      0.91       489
+    Osmancik       0.93      0.93      0.93       654
+
+    accuracy                           0.92      1143
+   macro avg       0.92      0.92      0.92      1143
+weighted avg       0.92      0.92      0.92      1143
+
+
+===================== (7) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.92      0.92      0.92       489
+    Osmancik       0.94      0.94      0.94       654
+
+    accuracy                           0.93      1143
+   macro avg       0.93      0.93      0.93      1143
+weighted avg       0.93      0.93      0.93      1143
+
+
+===================== (8) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.91      0.90      0.90       489
+    Osmancik       0.92      0.93      0.93       654
+
+    accuracy                           0.92      1143
+   macro avg       0.91      0.91      0.91      1143
+weighted avg       0.92      0.92      0.92      1143
+
+
+===================== (9) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.93      0.89      0.91       489
+    Osmancik       0.92      0.95      0.94       654
+
+    accuracy                           0.93      1143
+   macro avg       0.93      0.92      0.92      1143
+weighted avg       0.93      0.93      0.93      1143
+
+
+===================== (10) =====================
+              precision    recall  f1-score   support
+
+      Cammeo       0.92      0.89      0.91       489
+    Osmancik       0.92      0.94      0.93       654
+
+    accuracy                           0.92      1143
+   macro avg       0.92      0.92      0.92      1143
+weighted avg       0.92      0.92      0.92      1143
+
+

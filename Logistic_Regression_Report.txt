@@ -1,0 +1,8 @@
+              precision    recall  f1-score   support
+
+      Cammeo       0.94      0.89      0.91       489
+    Osmancik       0.92      0.95      0.94       654
+
+    accuracy                           0.93      1143
+   macro avg       0.93      0.92      0.92      1143
+weighted avg       0.93      0.93      0.93      1143
