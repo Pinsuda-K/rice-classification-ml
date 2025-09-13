@@ -34,21 +34,29 @@ This project gave me the opportunity to:
 ---
 
 ### Exploratory Data Analysis (EDA)
-Class Distribution
-Balanced Dataset wwith a slight dominance of Osmancik
-![Rice Distribution](./images/pie_rice.png)
-Feature Distributions
-Boxplots reveal distinct separation in traits like Area and Axis Lengths
-![Feature Distributions Boxplots](./images/boxplots_rice_looped.png)
+**Class Distribution**
+<summary> Balanced Dataset with a slight dominance of Cammeo </summary>
+<img src="./images/pie_rice.png" width="500">
+
+**Feature Distributions**
+<summary> Boxplots reveal distinct separation in traits like Area and Axis Lengths </summary>
+<img src="./images/boxplots_rice_looped.png" width="700">
 
 Scatter Plots
-Clear separability between varieties across multiple features
-![Area vs Perimeter](./images/scatter_Area_vs_Perimeter.png)
-![Area vs Major Axis Length](./images/scatter_Area_vs_Major_Axis_Length.png)
-![Area vs Minor Axis Length](./images/scatter_Area_vs_Minor_Axis_Length.png)
-![Area vs Convex Area](./images/scatter_Area_vs_Convex_Area.png)
-![Area vs Extent](./images/scatter_Area_vs_Extent.png)
-![Area vs Eccentricity](./images/scatter_Area_vs_Eccentricity.png)
+<summary> Clear separability between varieties across multiple features </summary>
+<p align="center">
+  <img src="./images/scatter_Area_vs_Perimeter.png" width="500">
+  <img src="./images/scatter_Area_vs_Major_Axis_Length.png" width="500">
+</p>
+<p align="center">
+  <img src="./images/scatter_Area_vs_Minor_Axis_Length.png" width="500">
+  <img src="./images/scatter_Area_vs_Convex_Area.png" width="500">
+</p>
+<p align="center">
+  <img src="./images/scatter_Area_vs_Extent.png" width="500">
+  <img src="./images/scatter_Area_vs_Eccentricity.png" width="500">
+</p>
+
 ---
 
 ### Methods
@@ -133,4 +141,14 @@ print(classification_report(y_test, y_pred_log))
 ```
 
 ### Result
+**Model Result**
+<summary> Random Forest vs Logistic Regression </summary>
+<p align="center">
+<img src="./images/confusion_matrix_random_forest.png" width="500">
+<img src="./images/confusion_matrix_logistic.png" width="500">
+</p>
 
+**Feature Importance (Random Forest)**
+<img src="./images/feature_importance.png" width="500">
+
+📄 See full details: [Classification_Report_10runs.txt](./Classification_Report_10runs.txt)
