@@ -52,9 +52,82 @@ Clear separability between varieties across multiple features
 ---
 
 ### Methods
-Tr
+<summary> Train–Test Split </summary>
 
+```python
+X = dataFrame.drop(['Class'], axis=1)
+y = dataFrame['Class']
 
+# Reproducible split; stratify preserves class balance in train/test
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.30, random_state=42, stratify=y)
+```
 
+<summary> Random Forest Classifier </summary>
 
+```python
+clf = RandomForestClassifier(n_estimators=1000, random_state=42, n_jobs=-1)
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
 
+acc = accuracy_score(y_test, y_pred)
+print(f"Single-run Accuracy: {acc:.4f}\n")
+print(classification_report(y_test, y_pred))
+ ```
+<summary> Logistic Regression (Baseline) </summary>
+  
+```python
+log_model = LogisticRegression(max_iter=1000, n_jobs=-1)  # parallel if available
+log_model.fit(X_train, y_train)
+y_pred_log = log_model.predict(X_test)
+# text metrics to console
+print("\n[Logistic Regression]")
+print("Accuracy:", accuracy_score(y_test, y_pred_log))
+print(classification_report(y_test, y_pred_log))
+```
+<summary> Code: 10-run evaluation with Random Forest + save report in .txt </summary>
+
+```python
+  DO_TEN_RUNS = True  # set True = produce 10-run stats, False = 1-run stat
+        if DO_TEN_RUNS:
+            seeds = range(10) # 10 different random seeds
+            cam_precision, cam_recall, cam_f1 = [], [], []
+            osm_precision, osm_recall, osm_f1 = [], [], []
+
+  with open("Classification_Report_10runs.txt", "w", encoding="utf-8") as f:
+      for i, seed in enumerate(seeds, start=1):
+          # 4.1 new split per run - make experiment independent
+          Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.30, random_state=seed, stratify=y)
+          # 4.2 re-train model for thhe split/seed
+          model = RandomForestClassifier(n_estimators=1000, random_state=seed, n_jobs=-1).fit(Xtr, ytr)
+          
+          # 4.3 predict & evaluate
+          yp = model.predict(Xte)
+          rep = classification_report(yte, yp)
+          rep_dict = classification_report(yte, yp, output_dict=True)
+          rep_df = pd.DataFrame(rep_dict).transpose()
+          
+          # 4.4 collect per-class metrics (Cammeo, Osmancik) for stats
+          cam_precision.append(rep_df.loc['Cammeo', 'precision'])
+          cam_recall.append(rep_df.loc['Cammeo', 'recall'])
+          cam_f1.append(rep_df.loc['Cammeo', 'f1-score'])
+
+          osm_precision.append(rep_df.loc['Osmancik', 'precision'])
+          osm_recall.append(rep_df.loc['Osmancik', 'recall'])
+          osm_f1.append(rep_df.loc['Osmancik', 'f1-score'])
+
+          # seperator of each run so it's neat
+          print(f"===================== ({i}) =====================\n{rep}\n", file=f)
+  
+  # summarize variability so it's neat
+  summary = pd.DataFrame({
+      'metric': ['precision','recall','f1-score']*2,
+      'class':  ['Cammeo']*3 + ['Osmancik']*3,
+      'mean':   [np.mean(cam_precision), np.mean(cam_recall), np.mean(cam_f1),
+                 np.mean(osm_precision), np.mean(osm_recall), np.mean(osm_f1)],
+      'std':    [np.std(cam_precision), np.std(cam_recall), np.std(cam_f1),
+                 np.std(osm_precision), np.std(osm_recall), np.std(osm_f1)]
+  })
+  summary.to_csv("PRF_10runs_summary.csv", index=False)
+  print("\nSaved 10-run summary to PRF_10runs_summary.csv")
+```
