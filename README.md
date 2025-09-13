@@ -31,31 +31,6 @@ This project gave me the opportunity to:
   6. Convex Area
   7. Extent
 - Target: Rice variety (Cammeo or Osmancik)
----
-
-### Exploratory Data Analysis (EDA)
-**Class Distribution**
-<summary> Balanced Dataset with a slight dominance of Cammeo </summary>
-<img src="./images/pie_rice.png" width="500">
-
-**Feature Distributions**
-<summary> Boxplots reveal distinct separation in traits like Area and Axis Lengths </summary>
-<img src="./images/boxplots_rice_looped.png" width="700">
-
-Scatter Plots
-<summary> Clear separability between varieties across multiple features </summary>
-<p align="center">
-  <img src="./images/scatter_Area_vs_Perimeter.png" width="500">
-  <img src="./images/scatter_Area_vs_Major_Axis_Length.png" width="500">
-</p>
-<p align="center">
-  <img src="./images/scatter_Area_vs_Minor_Axis_Length.png" width="500">
-  <img src="./images/scatter_Area_vs_Convex_Area.png" width="500">
-</p>
-<p align="center">
-  <img src="./images/scatter_Area_vs_Extent.png" width="500">
-  <img src="./images/scatter_Area_vs_Eccentricity.png" width="500">
-</p>
 
 ---
 
@@ -140,15 +115,39 @@ print(classification_report(y_test, y_pred_log))
   print("\nSaved 10-run summary to PRF_10runs_summary.csv")
 ```
 
-### Result
+### Result & Analysis
+**Exploratory Data Analysis (EDA): Class Distribution**
+<summary> Balanced Dataset with a slight dominance of Cammeo </summary>
+<img src="./images/pie_rice.png" width="500">
+
+**Exploratory Data Analysis (EDA): Feature Distributions**
+<summary> Boxplots reveal distinct separation in traits like Area and Axis Lengths </summary>
+<img src="./images/boxplots_rice_looped.png" width="700">
+
+**Scatter Plots**
+<summary> Clear separability between varieties across multiple features </summary>
+<p align="center">
+  <img src="./images/scatter_Area_vs_Perimeter.png" width="500">
+  <img src="./images/scatter_Area_vs_Major_Axis_Length.png" width="500">
+</p>
+<p align="center">
+  <img src="./images/scatter_Area_vs_Minor_Axis_Length.png" width="500">
+  <img src="./images/scatter_Area_vs_Convex_Area.png" width="500">
+</p>
+<p align="center">
+  <img src="./images/scatter_Area_vs_Extent.png" width="500">
+  <img src="./images/scatter_Area_vs_Eccentricity.png" width="500">
+</p>
+
 **Model Result**
 <summary> Random Forest vs Logistic Regression </summary>
 <p align="center">
 <img src="./images/confusion_matrix_random_forest.png" width="500">
 <img src="./images/confusion_matrix_logistic.png" width="500">
 </p>
+<summary> Feature Importance (Random Forest) </summary>
+<img src="./images/feature_importance.png" width="600">
 
-**Feature Importance (Random Forest)**
-<img src="./images/feature_importance.png" width="500">
-
-📄 See full details: [Classification_Report_10runs.txt](./Classification_Report_10runs.txt)
+<summary> 10-run Reliability Check (Random Forest) </summary>
+<img src="./images/prf_10runs_summary.png" width="700">
+📄 See full details: [Classification_Report_10runs.txt](./.txt/Classification_Report_10runs.txt)
