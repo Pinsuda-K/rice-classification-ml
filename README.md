@@ -8,13 +8,15 @@
 > Classifying Cammeo and Osmancik rice varieties using 7 morphological traits and machine learning models. This project explores both a baseline (Logistic Regression) and an ensemble method (Random Forest), comparing their performance and visualizing key insights. Originally explored in a group project, I later revisited and rebuilt the analysis independently, extended it with additional evaluation (10-run reliability check).
 
 ### Why I Built This
-- Practice **end-to-end ML workflow** (EDA → training → evaluation → visualization)  
+- Practice **end-to-end ML workflow** (EDA → training → evaluation → visualization)
+- Compare a simple linear baseline (Logistic Regression) with a stronger ensemble method (Random Forest).
 - Extend the work with **extra evaluation** (10-run statistics, logistic regression baseline)
   
 This project gave me the opportunity to:
 - Explore **7 morphological traits** of rice grains (Area, Perimeter, Axis Lengths, etc.)  
 - Apply **Random Forest** and compare it with a **Logistic Regression baseline**  
-- Practice **visual analysis** (scatter plots, boxplots, feature importance)  
+- Apply EDA visualizations to check feature separability. (scatter plots, boxplots, feature importance)
+- Evaluate classification performance with precision, recall, and f1-scores.
 - Repeated runs (with different seeds) improve **reliability of results**
 
 ---
@@ -114,40 +116,74 @@ print(classification_report(y_test, y_pred_log))
   summary.to_csv("PRF_10runs_summary.csv", index=False)
   print("\nSaved 10-run summary to PRF_10runs_summary.csv")
 ```
-
+---
 ### Result & Analysis
 **Exploratory Data Analysis (EDA): Class Distribution**
-<summary> Balanced Dataset with a slight dominance of Cammeo </summary>
+<summary> Balanced Dataset with a slight dominance of Cammeo (blue) 57.2% than Osmancik (orange) 42.8% </summary>
 <img src="./images/pie_rice.png" width="500">
 
 **Exploratory Data Analysis (EDA): Feature Distributions**
-<summary> Boxplots reveal distinct separation in traits like Area and Axis Lengths </summary>
+<summary> Boxplots show clear differences in Area, Perimeter, and Axis Lengths, which later emerge as the most important features. </summary>
 <img src="./images/boxplots_rice_looped.png" width="700">
 
 **Scatter Plots**
-<summary> Clear separability between varieties across multiple features </summary>
+<summary> Certain pairs of features reveal strong separability between varieties (e.g., Area vs Perimeter). Others, like Extent, show more overlap. </summary>
 <p align="center">
   <img src="./images/scatter_Area_vs_Perimeter.png" width="500">
   <img src="./images/scatter_Area_vs_Major_Axis_Length.png" width="500">
-</p>
-<p align="center">
   <img src="./images/scatter_Area_vs_Minor_Axis_Length.png" width="500">
   <img src="./images/scatter_Area_vs_Convex_Area.png" width="500">
-</p>
-<p align="center">
   <img src="./images/scatter_Area_vs_Extent.png" width="500">
   <img src="./images/scatter_Area_vs_Eccentricity.png" width="500">
 </p>
 
+---
+
 **Model Result**
+
+*Confusion Matrices*
+- Both models performed strongly (~91–92% accuracy).
+- Random Forest reduced misclassifications slightly more than Logistic Regression.
 <summary> Random Forest vs Logistic Regression </summary>
 <p align="center">
 <img src="./images/confusion_matrix_random_forest.png" width="500">
 <img src="./images/confusion_matrix_logistic.png" width="500">
 </p>
+
+*Feature Importance*
+- Random Forest shows that Major Axis Length, Perimeter, and Convex Area were the most important traits.
 <summary> Feature Importance (Random Forest) </summary>
 <img src="./images/feature_importance.png" width="600">
 
-<summary> 10-run Reliability Check (Random Forest) </summary>
-<img src="./images/prf_10runs_summary.png" width="700">
-📄 See full details: [Classification_Report_10runs.txt](./.txt/Classification_Report_10runs.txt)
+*10-run Reliability Check (Random Forest)*
+- To ensure the model’s stability, I repeated training/testing across 10 random seeds.
+- Results show consistent accuracy and low variability (std ~0.01).
+<summary> Summary of the 10-run Reliability Check (Random Forest) </summary>
+
+| Metric     | Class     | Mean  | Std   |
+|------------|-----------|-------|-------|
+| Precision  | Cammeo    | 0.92  | 0.01  |
+| Recall     | Cammeo    | 0.90  | 0.01  |
+| F1-score   | Cammeo    | 0.91  | 0.01  |
+| Precision  | Osmancik  | 0.93  | 0.01  |
+| Recall     | Osmancik  | 0.94  | 0.01  |
+| F1-score   | Osmancik  | 0.93  | 0.01  |
+
+- See full result of the 10-run: [Classification_Report_10runs.txt](./.txt/Classification_Report_10runs.txt)
+---
+### Model Comparison
+| Model                  | Accuracy | Notes                                        |
+| ---------------------- | -------- | -------------------------------------------- |
+| Logistic Regression    | \~90%    | Baseline linear model, interpretable         |
+| Random Forest (1-run)  | \~91–92% | Slightly higher accuracy, feature importance |
+| Random Forest (10-run) | \~91–92% | Stable across multiple seeds                 |
+---
+### Key Takeaways
+- EDA confirmed morphological features (especially Area & Axis Lengths) separate rice varieties well.
+- Logistic Regression provided a solid baseline with ~90% accuracy.
+- Random Forest performed slightly better (~92%) and highlighted key features.
+- 10-run evaluation confirmed the model is robust and reliable (low variance).
+---
+### References
+Rice Dataset (Kaggle)
+Scikit-learn documentation
